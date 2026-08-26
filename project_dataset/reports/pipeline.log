@@ -1,0 +1,112 @@
+[2026-08-24 17:21:52] [INFO] ============================================================
+[2026-08-24 17:21:52] [INFO] PHASE 0: Freeze Dataset Requirements
+[2026-08-24 17:21:52] [INFO] ============================================================
+[2026-08-24 17:21:52] [INFO] Source dataset: andythetechnerd03/AI-human-text
+[2026-08-24 17:21:52] [INFO] Human samples required: 5000
+[2026-08-24 17:21:52] [INFO] AI samples required: 5000
+[2026-08-24 17:21:52] [INFO] Random seed: 2026
+[2026-08-24 17:21:52] [INFO] Text column: text
+[2026-08-24 17:21:52] [INFO] Label column: generated
+[2026-08-24 17:21:52] [INFO] Label mapping: {0: 'human', 1: 'ai'}
+[2026-08-24 17:21:52] [INFO] Splits to use: ['train', 'test']
+[2026-08-24 17:21:52] [INFO] Phase 0 complete - requirements documented.
+[2026-08-24 17:21:52] [INFO] ============================================================
+[2026-08-24 17:21:52] [INFO] PHASE 1: Download and Audit Source Dataset
+[2026-08-24 17:21:52] [INFO] ============================================================
+[2026-08-24 17:21:52] [INFO] Loading dataset: andythetechnerd03/AI-human-text
+[2026-08-24 17:21:57] [INFO] Combined dataset size: 487235
+[2026-08-24 17:21:57] [INFO] Features: {'text': Value('string'), 'generated': Value('int8')}
+[2026-08-24 17:21:57] [INFO] Columns: ['text', 'generated']
+[2026-08-24 17:22:04] [INFO] Label distribution: {0: 305797, 1: 181438}
+[2026-08-24 17:22:04] [INFO] Verified label mapping: {0: 'human', 1: 'ai'}
+[2026-08-24 17:22:04] [INFO] Human label value: 0
+[2026-08-24 17:22:04] [INFO] AI label value: 1
+[2026-08-24 17:22:04] [INFO] Total human records: 305797
+[2026-08-24 17:22:04] [INFO] Total AI records: 181438
+[2026-08-24 17:22:09] [INFO] Missing text values: 0
+[2026-08-24 17:22:15] [INFO] Empty text strings: 5
+[2026-08-24 17:22:19] [INFO] Text length - min: 0, max: 18308, mean: 2212.1, median: 2048.0
+[2026-08-24 17:22:19] [INFO] Texts shorter than 10 chars: 6
+[2026-08-24 17:22:19] [INFO] Texts longer than 100000 chars: 0
+[2026-08-24 17:22:25] [INFO] Duplicate texts: 1672
+[2026-08-24 17:22:30] [INFO] Null labels: 0
+[2026-08-24 17:22:35] [INFO] Invalid labels: 0
+[2026-08-24 17:22:35] [INFO] Audit report written to: project_dataset\reports\source_dataset_audit.md
+[2026-08-24 17:22:36] [INFO] ============================================================
+[2026-08-24 17:22:36] [INFO] PHASE 2: Clean and Prepare Candidate Pools
+[2026-08-24 17:22:36] [INFO] ============================================================
+[2026-08-24 17:22:36] [INFO] Initial total records: 487235
+[2026-08-24 17:22:39] [INFO] Combined with split tracking: 487235 records
+[2026-08-24 17:22:40] [INFO] Initial human: 305797, Initial AI: 181438
+[2026-08-24 17:22:40] [INFO] human: removed 0 missing text records
+[2026-08-24 17:22:40] [INFO] ai: removed 0 missing text records
+[2026-08-24 17:22:40] [INFO] human: removed 0 empty text records
+[2026-08-24 17:22:41] [INFO] ai: removed 5 empty text records
+[2026-08-24 17:22:42] [INFO] human: removed 4 duplicate texts
+[2026-08-24 17:22:42] [INFO] ai: removed 1666 duplicate texts
+[2026-08-24 17:22:43] [INFO] human: removed 0 texts outside length [10, 100000]
+[2026-08-24 17:22:44] [INFO] ai: removed 1 texts outside length [10, 100000]
+[2026-08-24 17:22:45] [INFO] Final human candidates: 305793
+[2026-08-24 17:22:45] [INFO] Final AI candidates: 179766
+[2026-08-24 17:22:48] [INFO] Human candidates saved: project_dataset\processed\human_candidates.parquet
+[2026-08-24 17:22:48] [INFO] AI candidates saved: project_dataset\processed\ai_candidates.parquet
+[2026-08-24 17:22:48] [INFO] ============================================================
+[2026-08-24 17:22:48] [INFO] PHASE 3: Random Sampling
+[2026-08-24 17:22:48] [INFO] ============================================================
+[2026-08-24 17:22:48] [INFO] Sampling 5000 human, 5000 AI with seed 2026
+[2026-08-24 17:22:49] [INFO] Human sampled saved: project_dataset\sampled\human_5000.parquet (5000 records)
+[2026-08-24 17:22:49] [INFO] AI sampled saved: project_dataset\sampled\ai_5000.parquet (5000 records)
+[2026-08-24 17:22:49] [INFO] ============================================================
+[2026-08-24 17:22:49] [INFO] PHASE 4: Validate, Freeze, and Export
+[2026-08-24 17:22:49] [INFO] ============================================================
+[2026-08-24 17:22:49] [INFO] Combined dataset: 10000 records
+[2026-08-24 17:22:49] [INFO] Running validation checks...
+[2026-08-24 17:22:49] [INFO] [OK] Count validation: Human=5000, AI=5000, Total=10000
+[2026-08-24 17:22:49] [INFO] [OK] Label validation: Human=label 0, AI=label 1
+[2026-08-24 17:22:49] [INFO] [OK] Sample IDs are unique
+[2026-08-24 17:22:49] [INFO] [OK] Source row IDs are unique within each type
+[2026-08-24 17:22:49] [INFO] [OK] Texts are unique within each set
+[2026-08-24 17:22:49] [INFO] [OK] No cross-set text duplicates
+[2026-08-24 17:22:49] [INFO] [OK] All required provenance fields present and non-null
+[2026-08-24 17:22:49] [INFO] Running reproducibility test...
+[2026-08-24 17:22:49] [INFO] [OK] Reproducibility test PASSED - same source IDs selected
+[2026-08-24 17:22:49] [INFO] Combined dataset saved: project_dataset\sampled\originals_10000.parquet
+[2026-08-24 17:22:49] [INFO] CSV export saved: project_dataset\exports\originals_10000.csv
+[2026-08-24 17:22:49] [INFO] Reloading from disk for final verification...
+[2026-08-24 17:22:49] [INFO] [OK] Disk reload verification passed
+[2026-08-24 17:22:49] [INFO] ============================================================
+[2026-08-24 17:22:49] [INFO] FINAL REPORT
+[2026-08-24 17:22:49] [INFO] ============================================================
+[2026-08-24 17:22:49] [INFO] 
+Source dataset: andythetechnerd03/AI-human-text
+Source revision/version: bded52060163a1eb
+Original row count: 487,235
+
+Human candidates: 305,793
+Human selected: 5,000
+Human removed: 4
+
+AI candidates: 179,766
+AI selected: 5,000
+AI removed: 1,672
+
+Final total: 10,000
+Human = 5,000
+AI = 5,000
+
+Random seed: 2026
+Label mapping: {0: 'human', 1: 'ai'}
+
+Duplicates (source): 1,672
+Missing values (source): 0
+Validation status: PASSED
+
+Human dataset path: project_dataset\sampled\human_5000.parquet
+AI dataset path: project_dataset\sampled\ai_5000.parquet
+Combined dataset path: project_dataset\sampled\originals_10000.parquet
+CSV export path: project_dataset\exports\originals_10000.csv
+
+Ready for DIPPER: YES
+
+[2026-08-24 17:22:49] [INFO] Final summary written to: project_dataset\reports\FINAL_SUMMARY.txt
+[2026-08-24 17:22:49] [INFO] READY FOR DIPPER

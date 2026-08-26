@@ -1,0 +1,36 @@
+dataset:
+  source: "andythetechnerd03/AI-human-text"
+  human_samples: 5000
+  ai_samples: 5000
+  random_seed: 2026
+  text_column: "text"
+  label_column: "generated"
+  label_mapping:
+    0: "human"
+    1: "ai"
+  splits_to_use:
+    - "train"
+    - "test"
+
+quality:
+  remove_missing: true
+  remove_empty: true
+  remove_duplicates: true
+  min_text_length: 10
+  max_text_length: 100000
+
+output:
+  format_primary: "parquet"
+  format_secondary: "csv"
+  compression: "snappy"
+
+provenance:
+  preserve_source_row_id: true
+  preserve_source_split: true
+  add_sampling_timestamp: true
+  add_word_count: true
+  add_character_count: true
+
+reproducibility:
+  verify_deterministic: true
+  record_dataset_revision: true
