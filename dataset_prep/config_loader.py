@@ -38,7 +38,8 @@ def validate_config(cfg: dict) -> None:
     problems = []
     if d["source"] != FROZEN_SPEC["source"]:
         problems.append(f"dataset.source must be {FROZEN_SPEC['source']!r}")
-    if d["source_splits"] != FROZEN_SPEC["source_splits"]:
+    source_splits = d.get("source_splits", d.get("splits_to_use"))
+    if source_splits != FROZEN_SPEC["source_splits"]:
         problems.append("dataset.source_splits must be ['train', 'test']")
     if d["human_samples"] != FROZEN_SPEC["human_samples"]:
         problems.append("dataset.human_samples must be 5000")

@@ -5,3 +5,17 @@ __pycache__/
 project_dataset/raw/
 project_dataset/sampled/_repro_tmp/
 project_dataset/processed/*.parquet
+data/raw/*
+data/processed/*
+data/splits/*
+data/reports/*
+logs/*
+models/*
+outputs/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/splits/.gitkeep
+!data/reports/.gitkeep
+!logs/.gitkeep
+!models/.gitkeep
+!outputs/.gitkeep

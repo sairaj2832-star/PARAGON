@@ -1,0 +1,29 @@
+model:
+  # This is configurable because lab access may require a local checkpoint path.
+  name_or_path: "kalpeshk2011/dipper-paraphraser-xxl"
+  local_files_only: false
+  device_map: "auto"
+  dtype: "float16"
+  quantization: "none"  # one of: none, int8, int4
+  trust_remote_code: false
+inference:
+  input_path: "data/processed/master_10k.csv"
+  output_path: "outputs/inference/dipper_outputs.csv"
+  failures_path: "outputs/failures/failed_samples.csv"
+  checkpoint_path: "outputs/inference/checkpoint.json"
+  report_path: "outputs/reports/inference_report.json"
+  source_type: "ai_original"
+  batch_size: 1
+  max_input_tokens: 1024
+  max_new_tokens: 512
+  resume: true
+  prompt_template: "lexical = {lexical_diversity}, order = {order_diversity} <sent> {text} </sent>"
+  lexical_diversity: 40
+  order_diversity: 40
+  generation:
+    do_sample: false
+    num_beams: 1
+    temperature: null
+  oom:
+    auto_reduce_batch_size: true
+    minimum_batch_size: 1

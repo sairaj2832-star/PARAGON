@@ -1,0 +1,7 @@
+# Install PyTorch for the CUDA version exposed by the virtual lab first:
+# https://pytorch.org/get-started/locally/
+-r requirements.txt
+torch>=2.2
+transformers>=4.51
+accelerate>=0.30
+bitsandbytes>=0.43

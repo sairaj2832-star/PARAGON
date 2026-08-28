@@ -1,0 +1,15 @@
+dataset:
+  version: "originals-10k-v1"
+  human_input: "project_dataset/sampled/human_5000.parquet"
+  ai_input: "project_dataset/sampled/ai_5000.parquet"
+  master_output: "data/processed/master_10k.csv"
+  report_json: "data/reports/dataset_report.json"
+  report_text: "data/reports/dataset_report.txt"
+  split_directory: "data/splits"
+  expected_human_count: 5000
+  expected_ai_count: 5000
+  seed: 2026
+  splits:
+    train: 0.70
+    validation: 0.15
+    test: 0.15

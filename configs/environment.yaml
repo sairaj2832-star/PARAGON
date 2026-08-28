@@ -1,0 +1,11 @@
+environment:
+  min_python: "3.10"
+  min_free_disk_gb: 50
+  min_ram_gb: 16
+  required_packages:
+    pandas: "2.0"
+    PyYAML: "6.0"
+    torch: "2.2"
+    transformers: "4.51"
+    accelerate: "0.30"
+    bitsandbytes: "0.43"
